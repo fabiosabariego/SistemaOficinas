@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SistemaOficinas.Models;
 
 namespace SistemaOficinas.Controllers
 {
@@ -7,6 +8,18 @@ namespace SistemaOficinas.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult CadastroVeiculos()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CadastroVeiculos(VeiculosModel veiculosModel)
+        {
+            return View(veiculosModel);
         }
     }
 }
