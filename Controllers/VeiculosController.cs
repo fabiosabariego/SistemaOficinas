@@ -62,7 +62,11 @@ namespace SistemaOficinas.Controllers
         [HttpPost]
         public IActionResult CadastroVeiculos(VeiculosModel veiculosModel)
         {
-            return View();
+
+            TempData["Mensagem"] = $"O Veiculo {veiculosModel.Modelo} foi cadastrado com Sucesso!";
+            return RedirectToAction("Index", "Veiculos");
         }
+
+
     }
 }
