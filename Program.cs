@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using SistemaOficinas.Data;
+
 namespace SistemaOficinas
 {
     public class Program
@@ -8,6 +11,14 @@ namespace SistemaOficinas
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+
+            //********************************************************************
+            // Configuracoes para Conexao com o Banco de Dados
+            var connectionString = builder.Configuration.GetConnectionString("databaseUrl");
+            builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString).EnableSensitiveDataLogging(true));
+            //********************************************************************
+
 
             var app = builder.Build();
 
